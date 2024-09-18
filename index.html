@@ -11,9 +11,27 @@
             alert("Cadastro salvo com sucesso")
             return false
         }
+        var contador = 0 
+        
+        
+        function mudarposicaobotao(){
+            var botao = document.getElementById("salvar")
+            if(contador < 5){
+            let randomtop = Math.floor(Math.random() * 90)
+            let randomleft = Math.floor(Math.random() * 90)
+            botao.style.position = "absolute"
+            botao.style.top = `${randomtop}%`
+            botao.style.left = `${randomleft}%`
+            contador++
+            }else{
+                botao.style.position = "relative"
+                botao.style.top = "0%"
+                botao.style.left = "0%"
+            }
+        }
     </script>
 
-</head>
+</head> 
 
 <body>
     <form action="" method="post" onsubmit="return salvarcliente()">
@@ -29,7 +47,7 @@
             <label>Senha</label>
             <input type="password" name="senha" id="senha" maxlength="12"/>
         </div>
-        <button type="submit" name="salvar" id="salvar">Salvar</button>    
+        <button type="submit" name="salvar" id="salvar" onmousemove="mudarposicaobotao()" onfocus="mudarposicaobotao()" tabindex="-1">Salvar</button>    
     </form>
 </body>
 </html>
